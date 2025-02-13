@@ -45,7 +45,7 @@ class BackyardFlyer(Drone):
         altitude = self.get_current_altitude()
         # check if the flyer is in the TAKEOFF state and the altitude is greater than 95% of the target altitude
         if self.flight_state == States.TAKEOFF and altitude > 0.95 * self.target_position[2]:
-                self.all_waypoints = self.calculate_box()
+                self.all_waypoints = self.calculate_box(size = 5)
                 self.waypoint_transition()
 
         elif self.flight_state == States.WAYPOINT:
